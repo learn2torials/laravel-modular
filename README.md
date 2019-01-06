@@ -1,4 +1,8 @@
 # Laravel Modular App Plugin
+[![Laravel](https://img.shields.io/badge/laravel-5-orange.svg)](http://laravel.com)
+[![Release](https://poser.pugx.org/learn2torials/laravel-modular/v/stable)](https://github.com/learn2torials/laravel-modular/releases)
+![Issues](https://img.shields.io/github/issues/learn2torials/laravel-modular.svg)
+![Licence](https://img.shields.io/github/license/learn2torials/laravel-modular.svg)
 
 Turn your existing laravel app into modular application. Laravel modular plugin allows you to write modular plugins for laravel.
 
