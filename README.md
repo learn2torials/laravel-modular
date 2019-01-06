@@ -77,28 +77,44 @@ return [
 ];
 ```
 
-That is it, your module is now enabled. You can verify that your module is working by browsing http://yourdomain.com/comments
+That is it, your module is now enabled. You can verify that your module is working by browsing 
 
-# Other configurations
+http://yourdomain.com/comments
 
-To enable i18n or language feature in your app set:
 
-```
-"i18n" => true,
-```
-
-To add prefix before all your modules set:
+# Add prefix before all your modules. Set following config in *config/console.php* file.
 
 ```
 "prefix" => "admin",
 ```
 
-To force all http routes to https set:
+Now, your module url will be: 
+
+http://yourdomain.com/admin/comments
+
+
+# Enable translation for you module. Set following config in *config/console.php* file.
 
 ```
-"https" => true,
+"i18n" => true,
 ```
 
-# What is i18n feature?
+Now, your module url will be: 
 
-Once you turned on this feature you can easily translate your module
+http://yourdomain.com/en/ca/comments      -> for english translation
+http://yourdomain.com/fr/ca/comments      -> for french translation
+
+# When prefix is enabled
+
+http://yourdomain.com/en/ca/admin/comments -> if prefix is admin
+http://yourdomain.com/fr/ca/admin/comments -> if prefix is admin
+
+
+How to use translations. Check your view file in your module to get the idea of usage:
+```
+{{ __('module::file_name.translation_key') }}
+```
+
+# Reference
+
+Visit my website for cool articles: https://learn2torials.com
