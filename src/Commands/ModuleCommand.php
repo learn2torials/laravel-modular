@@ -34,33 +34,39 @@ class ModuleCommand extends Command
             $this->warn("Creating a new module: " .$module);
             $this->warn("--------------------------------");
 
-            $route_path = app_path('Modules/'. $module. '/routes.php');
-            $config_path = app_path('Modules/'. $module. '/config.php');
-            $index_path = app_path('Modules/'. $module. '/Views/index.blade.php');
+            $routePath = app_path('Modules/'. $module. '/routes.php');
+            $configPath = app_path('Modules/'. $module. '/config.php');
+            $indexPath = app_path('Modules/'. $module. '/Views/index.blade.php');
+            $enTransPath = app_path('Modules/'. $module. '/Translations/en/general.php');
+            $frTransPath = app_path('Modules/'. $module. '/Translations/fr/general.php');
 
-            $module_views_path = app_path('Modules/'. $module. '/Views');
-            $module_models_path = app_path('Modules/'. $module. '/Models');
-            $module_factory_path = app_path('Modules/'. $module. '/Factory');
-            $module_migrations_path = app_path('Modules/'. $module. '/Migrations');
-            $module_controller_path = app_path('Modules/'. $module. '/Controllers');
+            $moduleViewPath = app_path('Modules/'. $module. '/Views');
+            $moduleModelPath = app_path('Modules/'. $module. '/Models');
+            $moduleMigrationPath = app_path('Modules/'. $module. '/Migrations');
+            $moduleControllerPath = app_path('Modules/'. $module. '/Controllers');
+            $moduleEnTranslationPath = app_path('Modules/'. $module. '/Translations/en');
+            $moduleFrTranslationPath = app_path('Modules/'. $module. '/Translations/fr');
 
-            if( !\File::exists($route_path) )
+            if( !\File::exists($routePath) )
             {
                 $this->warn("Creating Folder Structure ...");
-                \File::makeDirectory($module_views_path, 0755, true);
-                $this->info("Created: " .$module_views_path);
+                \File::makeDirectory($moduleViewPath, 0755, true);
+                $this->info("Created: " .$moduleViewPath);
 
-                \File::makeDirectory($module_migrations_path, 0755, true);
-                $this->info("Created: " .$module_migrations_path);
+                \File::makeDirectory($moduleMigrationPath, 0755, true);
+                $this->info("Created: " .$moduleMigrationPath);
 
-                \File::makeDirectory($module_controller_path, 0755, true);
-                $this->info("Created: " .$module_controller_path);
+                \File::makeDirectory($moduleControllerPath, 0755, true);
+                $this->info("Created: " .$moduleControllerPath);
 
-                \File::makeDirectory($module_models_path, 0755, true);
-                $this->info("Created: " .$module_models_path);
+                \File::makeDirectory($moduleModelPath, 0755, true);
+                $this->info("Created: " .$moduleModelPath);
 
-                \File::makeDirectory($module_factory_path, 0755, true);
-                $this->info("Created: " .$module_factory_path);
+                \File::makeDirectory($moduleEnTranslationPath, 0755, true);
+                $this->info("Created: " .$moduleEnTranslationPath);
+
+                \File::makeDirectory($moduleFrTranslationPath, 0755, true);
+                $this->info("Created: " .$moduleFrTranslationPath);
 
                 $this->info(PHP_EOL);
             }
@@ -68,7 +74,7 @@ class ModuleCommand extends Command
             $this->warn("Creating File Structure ...");
 
             // generate home controller
-            $file_target = $module_controller_path. '/HomeController.php';
+            $file_target = $moduleControllerPath. '/HomeController.php';
             $file_tpl = __DIR__. '/Templates/HomeController.tpl';
             $this->create($file_tpl, $file_target, [
                 'module' => $module,
@@ -77,21 +83,35 @@ class ModuleCommand extends Command
 
             // generate routes file
             $file_tpl = __DIR__. '/Templates/routes.tpl';
-            $this->create($file_tpl, $route_path, [
+            $this->create($file_tpl, $routePath, [
                 'module' => $module,
                 'module_lower' => $module_raw
             ]);
 
             // generate config file
             $file_tpl = __DIR__. '/Templates/config.tpl';
-            $this->create($file_tpl, $config_path, [
+            $this->create($file_tpl, $configPath, [
                 'module' => $module,
                 'module_lower' => $module_raw
             ]);
 
             // generate config file
             $file_tpl = __DIR__. '/Templates/index.tpl';
-            $this->create($file_tpl, $index_path, [
+            $this->create($file_tpl, $indexPath, [
+                'module' => $module,
+                'module_lower' => $module_raw
+            ]);
+
+            // en trans
+            $file_tpl = __DIR__. '/Templates/en_trans.tpl';
+            $this->create($file_tpl, $enTransPath, [
+                'module' => $module,
+                'module_lower' => $module_raw
+            ]);
+
+            // fr trans
+            $file_tpl = __DIR__. '/Templates/fr_trans.tpl';
+            $this->create($file_tpl, $frTransPath, [
                 'module' => $module,
                 'module_lower' => $module_raw
             ]);

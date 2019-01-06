@@ -1,1 +1,1 @@
-<h1>{{ config('[[module_lower]].name') }}</h1>
+<h1>{{ __('[[module_lower]]::general.welcome') }}</h1>
