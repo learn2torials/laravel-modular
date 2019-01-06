@@ -11,12 +11,5 @@
 |
 */
 return [
-    'menu_items' => [
-        'admin_[[module_lower]]' => [
-            'active' => '[[module_lower]]',
-            'title'  => '[[module]]',
-            'icon'   => 'fa fa-question'
-        ]
-    ],
-    'middleware' => ['web', 'auth', 'admin']
+    'name' => '[[module]]'
 ];

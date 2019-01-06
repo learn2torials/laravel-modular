@@ -83,8 +83,8 @@ class AppServiceProvider extends ServiceProvider
     {
         foreach (config($this->module. '.modules', []) as $module => $isTurnedOn)
         {
-            if($isTurnedOn) {
-
+            if($isTurnedOn)
+            {
                 $modulePath   = app_path(). '/Modules/' .ucfirst($module). DIRECTORY_SEPARATOR;
                 $moduleConfigPath = $modulePath. 'config.php';
 

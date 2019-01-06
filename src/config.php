@@ -9,5 +9,8 @@
 |
 */
 return [
-    "https" => false
+    "https"    => false,
+    "modules"  => [
+
+    ]
 ];
