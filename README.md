@@ -84,9 +84,9 @@ return [
 ```
 
 That is it, your module is now enabled. You can verify that your module is working by browsing 
-
+```
 http://yourdomain.com/comments
-
+```
 
 ### Add prefix before all your modules. Set following config in *config/console.php* file.
 
