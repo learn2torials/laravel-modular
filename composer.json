@@ -1,0 +1,36 @@
+{
+  "name": "learn2torials/laravel-modular",
+  "homepage": "https://learn2torials.com",
+  "description": "Laravel Admin Panel Plugin",
+  "keywords": ["laravel modular app", "modular app laravel"],
+  "minimum-stability": "stable",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sandip Patel",
+      "email": "sandip254@gmail.com",
+      "homepage": "https://learn2torials.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "L2T\\": "src/"
+    },
+    "files": [
+      "src/helper.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "L2T\\Providers\\AppServiceProvider",
+        "L2T\\Providers\\RouteServiceProvider"
+      ]
+    }
+  }
+}

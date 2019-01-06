@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: spatel
+ * Date: 06/01/19
+ * Time: 9:21 AM
+ */
+if ( isset($_SERVER["HTTP_CF_CONNECTING_IP"]) )
+{
+     $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+}
+
+if (!function_exists('langPrefix') )
+{
+    function langPrefix($prefix='')
+    {
+        return trim(config('langPrefix'). ($prefix ? '/' .$prefix : ''), '/');
+    }
+}
+
+if (!function_exists('getModuleSlug') )
+{
+    function getModuleSlug($str, $delimiter='')
+    {
+        return str_replace(' ', $delimiter, ucwords(str_replace('-', ' ', str_slug(trim($str), '-'))));
+    }
+}
+
+if (!function_exists('getModuleSlugRaw') )
+{
+    function getModuleSlugRaw($str)
+    {
+        return str_replace('-', '_', str_slug(trim($str), '-'));
+    }
+}
