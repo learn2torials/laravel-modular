@@ -82,7 +82,7 @@ That is it, your module is now enabled. You can verify that your module is worki
 http://yourdomain.com/comments
 
 
-# Add prefix before all your modules. Set following config in *config/console.php* file.
+### Add prefix before all your modules. Set following config in *config/console.php* file.
 
 ```
 "prefix" => "admin",
@@ -93,7 +93,7 @@ Now, your module url will be:
 http://yourdomain.com/admin/comments
 
 
-# Enable translation for you module. Set following config in *config/console.php* file.
+### Enable translation for you module. Set following config in *config/console.php* file.
 
 ```
 "i18n" => true,
@@ -104,7 +104,7 @@ Now, your module url will be:
 http://yourdomain.com/en/ca/comments      -> for english translation
 http://yourdomain.com/fr/ca/comments      -> for french translation
 
-# When prefix is enabled
+### When prefix is enabled
 
 http://yourdomain.com/en/ca/admin/comments -> if prefix is admin
 http://yourdomain.com/fr/ca/admin/comments -> if prefix is admin
