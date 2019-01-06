@@ -74,8 +74,6 @@ class AppServiceProvider extends ServiceProvider
             // set url prefix for routing purpose
             config(['langPrefix' => trim("{$requested_lang}/{$requested_country}", DIRECTORY_SEPARATOR)]);
         }
-
-        dd(config());
     }
 
     /**
