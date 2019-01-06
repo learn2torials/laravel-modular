@@ -62,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
 
     private function enableI18n()
     {
-        if( config($this->module. '.i18') )
+        if( config($this->module. '.i18n') )
         {
             $requested_lang = (strlen(request()->segment(1)) === 2) ? request()->segment(1) : '';
             $requested_country = (strlen(request()->segment(2)) === 2) ? request()->segment(2) : '';

@@ -9,6 +9,7 @@
 |
 */
 return [
+    "i18n"     => false,
     "https"    => false,
     "modules"  => [
 
