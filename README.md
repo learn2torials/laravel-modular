@@ -39,6 +39,7 @@ php artisan make:module comments
 
 Above command will create a new directory under App/Modules with following structure.
 
+```
 App
 |- Modules
 |-- Comments
@@ -53,6 +54,7 @@ App
 		|-- general.php
 |-- config.php
 |-- routes.php
+```
 
 Next, once this folder structure is generated you can turn on this module by creating console.php file in *config* directory.
 
