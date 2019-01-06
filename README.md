@@ -6,7 +6,7 @@
 
 Turn your existing laravel app into modular application. Laravel modular plugin allows you to write modular plugins for laravel.
 
-Let say, you are building a blog application. You blog needs to have following features:
+Let's say, you are building a blog application. Your blog needs to have following features:
 
 - comments
 - blog post
@@ -18,14 +18,7 @@ You can turn this features into a module and bundle your logic so that you can e
 # Plugin Requirements
 
 - PHP >= 7.1.3
-- OpenSSL PHP Extension
-- PDO PHP Extension
-- Mbstring PHP Extension
-- Tokenizer PHP Extension
-- XML PHP Extension
-- Ctype PHP Extension
-- JSON PHP Extension
-- BCMath PHP Extension
+- Laravel >= 5.5
 
 # How to install this plugin
 
@@ -34,7 +27,7 @@ Run following command to your existing project.
 ```
 
 # install this plugin
-composer install "learn2torials/laravel-modular"
+composer require "learn2torials/laravel-modular"
 
 # create module using artisan
 php artisan make:module comments
@@ -47,17 +40,17 @@ Above command will create a new directory under App/Modules with following struc
 App
 |- Modules
    |-- Comments
-   |-- Controllers
-   |-- Models
-   |-- Views
-   |-- Migrations
-   |-- Translations
-      |-- en
-          |-- general.php
-      |-- fr
-          |-- general.php
-   |-- config.php
-   |-- routes.php
+      |-- Controllers
+      |-- Models
+      |-- Views
+      |-- Migrations
+      |-- Translations
+         |-- en
+             |-- general.php
+         |-- fr
+             |-- general.php
+      |-- config.php
+      |-- routes.php
 ```
 
 Next, once this folder structure is generated you can turn on this module by creating console.php file in *config* directory.
