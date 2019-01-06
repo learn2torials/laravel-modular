@@ -1,7 +1,7 @@
 {
   "name": "learn2torials/laravel-modular",
   "homepage": "https://learn2torials.com",
-  "description": "Laravel Admin Panel Plugin",
+  "description": "Laravel Modular App Plugin",
   "keywords": ["laravel modular app", "modular app laravel"],
   "minimum-stability": "stable",
   "type": "project",
