@@ -1,10 +1,15 @@
 # Laravel Modular App Plugin
 
-This plugin makes your existing laravel application into modular application. Followings are some of the feature of this plugin.
+Turn your existing laravel app into modular application. Laravel modular plugin allows you to write modular plugins for laravel.
 
-- i18n/translation support
-- dynamic module generation
-- turn on/off modules for your app
+Let say, you are building a blog application. You blog needs to have following features:
+
+- comments
+- blog post
+- user management etc..
+
+You can turn this features into a module and bundle your logic so that you can easily use this module for your other projects. You can easily turn on/off your module.
+
 
 # Plugin Requirements
 
@@ -23,24 +28,14 @@ This plugin makes your existing laravel application into modular application. Fo
 Run following command to your existing project.
 
 ```
+
+# install this plugin
 composer install "learn2torials/laravel-modular"
-```
 
-# How to use this plugin
-
-Once you installed composer dependency you will be able to create dynamic modular app with your existing laravel app. Example: if you are creating a new app and you want to write your code in such a way so that you can easily turn on/off your modules.
-
-Let say, you are building a blog application. You blog needs to have following features:
-
-- comments
-- blog post
-- user management etc..
-
-You can turn this features into a module and bundle your logic so that you can easily use this module for your other projects. To create a module use following command in your terminal window.
-
-```
+# create module using artisan
 php artisan make:module comments
 ```
+
 
 Above command will create a new directory under App/Modules with following structure.
 
@@ -52,14 +47,14 @@ App
 |-- Views
 |-- Migrations
 |-- Translations
-|-- en
-|-- general.php
-|-- fr
-|-- general.php
+	|-- en
+		|-- general.php
+	|-- fr
+		|-- general.php
 |-- config.php
 |-- routes.php
 
-Next, once this folder structure is generated you can turn on this module by creating console.php file in _config_ directory.
+Next, once this folder structure is generated you can turn on this module by creating console.php file in *config* directory.
 
 ```
 <?php
