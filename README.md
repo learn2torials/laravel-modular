@@ -48,10 +48,10 @@ App
 |-- Views
 |-- Migrations
 |-- Translations
-	|-- en
-		|-- general.php
-	|-- fr
-		|-- general.php
+    |-- en
+        |-- general.php
+    |-- fr
+        |-- general.php
 |-- config.php
 |-- routes.php
 ```
