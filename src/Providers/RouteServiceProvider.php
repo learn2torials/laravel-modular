@@ -47,13 +47,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapModuleRoutes()
     {
-        $routePrefix = config('console.prefix', '/'). '/';
+        $routePrefix = config('console.prefix') ? config('console.prefix'). '/' : '';
         foreach (config('console.modules', []) as $module => $isTurnedOn) {
             if($isTurnedOn) {
                 $modulePath   = app_path(). '/Modules/' .ucfirst($module). DIRECTORY_SEPARATOR;
                 $moduleRoutes = $modulePath. 'routes.php';
                 if( \File::exists($moduleRoutes) ) {
-                    $route_prefix = trim($routePrefix, '/'). $module;
+                    $route_prefix = $routePrefix. $module;
                     $middleware = config($module. '.middleware', ['web']);
                     $module_namespace = 'App\\Modules\\' .ucfirst($module). '\\Controllers';
                     Route::prefix(langPrefix($route_prefix))->namespace($module_namespace)->middleware($middleware)->group($moduleRoutes);
