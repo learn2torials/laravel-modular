@@ -42,18 +42,18 @@ Above command will create a new directory under App/Modules with following struc
 ```
 App
 |- Modules
-|-- Comments
-|-- Controllers
-|-- Models
-|-- Views
-|-- Migrations
-|-- Translations
-    |-- en
-        |-- general.php
-    |-- fr
-        |-- general.php
-|-- config.php
-|-- routes.php
+   |-- Comments
+   |-- Controllers
+   |-- Models
+   |-- Views
+   |-- Migrations
+   |-- Translations
+      |-- en
+          |-- general.php
+      |-- fr
+          |-- general.php
+   |-- config.php
+   |-- routes.php
 ```
 
 Next, once this folder structure is generated you can turn on this module by creating console.php file in *config* directory.
