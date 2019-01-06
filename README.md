@@ -91,9 +91,9 @@ http://yourdomain.com/comments
 ```
 
 Now, your module url will be: 
-
+```
 http://yourdomain.com/admin/comments
-
+```
 
 ### Enable translation for you module. Set following config in *config/console.php* file.
 
@@ -103,14 +103,16 @@ http://yourdomain.com/admin/comments
 
 Now, your module url will be: 
 
+```
 http://yourdomain.com/en/ca/comments      -> for english translation
 http://yourdomain.com/fr/ca/comments      -> for french translation
+```
 
 ### When prefix is enabled
-
+```
 http://yourdomain.com/en/ca/admin/comments -> if prefix is admin
 http://yourdomain.com/fr/ca/admin/comments -> if prefix is admin
-
+```
 
 How to use translations. Check your view file in your module to get the idea of usage:
 ```
