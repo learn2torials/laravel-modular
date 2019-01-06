@@ -30,17 +30,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $rootDir = dirname(__DIR__);
+        $this->publishes([
+            $rootDir. '/config.php' => config_path($this->module. '.php'),
+        ]);
 
         $this->loadViewsFrom($rootDir. '/Views', $this->module);
         $this->loadMigrationsFrom($rootDir. '/Migrations');
         $this->mergeConfigFrom($rootDir. '/config.php', $this->module);
         $this->loadTranslationsFrom($rootDir. '/Translations', $this->module);
-
-        $this->publishes([
-            $rootDir. '/config.php' => config_path($this->module. '.php'),
-        ]);
 
         // console commands goes here
         if ($this->app->runningInConsole()) {
@@ -76,6 +74,8 @@ class AppServiceProvider extends ServiceProvider
             // set url prefix for routing purpose
             config(['langPrefix' => trim("{$requested_lang}/{$requested_country}", DIRECTORY_SEPARATOR)]);
         }
+
+        dd(config());
     }
 
     /**
