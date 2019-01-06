@@ -47,7 +47,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapModuleRoutes()
     {
-        $routePrefix = env('ADMIN_URL_PREFIX') ?: '/';
+        $routePrefix = env('MODULE_PREFIX') ?: '/';
         foreach (config('console.modules', []) as $module => $isTurnedOn) {
             if($isTurnedOn) {
                 $modulePath   = app_path(). '/Modules/' .ucfirst($module). DIRECTORY_SEPARATOR;
