@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
                 $moduleRoutes = $modulePath. 'routes.php';
                 if( \File::exists($moduleRoutes) ) {
                     $route_prefix = $routePrefix. $module;
-                    $middleware = config($module. '.middleware', ['web']);
+                    $middleware = config($module. '.route_middleware', ['web']);
                     $module_namespace = 'App\\Modules\\' .ucfirst($module). '\\Controllers';
                     Route::prefix(langPrefix($route_prefix))->namespace($module_namespace)->middleware($middleware)->group($moduleRoutes);
                 }

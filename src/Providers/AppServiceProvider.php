@@ -25,10 +25,8 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
-     *
-     * @param \Illuminate\Routing\Router $router
      */
-    public function boot(\Illuminate\Routing\Router $router)
+    public function boot()
     {
         $rootDir = dirname(__DIR__);
         $this->publishes([
@@ -48,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->enableI18n();
-        $this->enableModularApp($router);
+        $this->enableModularApp();
 
         \Auth::provider('User', function($app, array $config) {
             return new UserServiceProvider($app['hash'], $config['model']);
@@ -85,10 +83,8 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Enable modular app feature
-     *
-     * @param \Illuminate\Routing\Router $router
      */
-    private function enableModularApp(\Illuminate\Routing\Router $router)
+    private function enableModularApp()
     {
         foreach (config($this->module. '.modules', []) as $module => $isTurnedOn)
         {
@@ -107,7 +103,7 @@ class AppServiceProvider extends ServiceProvider
                 // register middle wares
                 $moduleMiddleware = config($module. '.middleware', []);
                 foreach ($moduleMiddleware as $key => $middleware) {
-                    $router->middleware($key, $middleware);
+                    $this->app['router']->aliasMiddleware($key , $middleware);
                 }
             }
         }
