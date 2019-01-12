@@ -59,7 +59,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // register providers
     }
 
     /**
@@ -104,6 +104,12 @@ class AppServiceProvider extends ServiceProvider
                 $moduleMiddleware = config($module. '.middleware', []);
                 foreach ($moduleMiddleware as $key => $middleware) {
                     $this->app['router']->aliasMiddleware($key , $middleware);
+                }
+
+                // register service provider
+                $moduleProviders = config($module. '.providers', []);
+                foreach ($moduleProviders as $provider) {
+                    $this->app->register($provider);
                 }
             }
         }

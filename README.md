@@ -149,6 +149,11 @@ return [
         'user' => \App\Modules\User\Middleware\UserAuthenticated::class,
     ],
 
+    // register service providers
+    'providers' => [
+        \App\Modules\User\Provider\UserProvider::class
+    ],
+
     // register route middleware
     'route_middleware' => ['user'],
 
