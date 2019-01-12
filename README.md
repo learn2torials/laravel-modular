@@ -149,6 +149,9 @@ return [
         'user' => \App\Modules\User\Middleware\UserAuthenticated::class,
     ],
 
+    // register route middleware
+    'route_middleware' => ['user'],
+
     // database seeder
     'seeder' => [
         __DIR__. '/Migrations/Seeder/UsersTableSeeder.php'
