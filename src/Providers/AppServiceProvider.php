@@ -26,9 +26,9 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
-     * @return void
+     * @param \Illuminate\Routing\Router $router
      */
-    public function boot()
+    public function boot(\Illuminate\Routing\Router $router)
     {
         $rootDir = dirname(__DIR__);
         $this->publishes([
@@ -48,7 +48,11 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->enableI18n();
-        $this->enableModularApp();
+        $this->enableModularApp($router);
+
+        \Auth::provider('User', function($app, array $config) {
+            return new UserServiceProvider($app['hash'], $config['model']);
+        });
     }
     /**
      * Register any application services.
@@ -60,6 +64,9 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+    /**
+     * Enable i18n translations
+     */
     private function enableI18n()
     {
         if( config($this->module. '.i18n') )
@@ -78,8 +85,10 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Enable modular app feature
+     *
+     * @param \Illuminate\Routing\Router $router
      */
-    private function enableModularApp()
+    private function enableModularApp(\Illuminate\Routing\Router $router)
     {
         foreach (config($this->module. '.modules', []) as $module => $isTurnedOn)
         {
@@ -93,6 +102,12 @@ class AppServiceProvider extends ServiceProvider
                     $this->loadViewsFrom($modulePath.'Views', $module);
                     $this->loadMigrationsFrom($modulePath. 'Migrations');
                     $this->loadTranslationsFrom($modulePath.'Translations', $module);
+                }
+
+                // register middle wares
+                $moduleMiddleware = config($module. '.middleware', []);
+                foreach ($moduleMiddleware as $key => $middleware) {
+                    $router->middleware($key, $middleware);
                 }
             }
         }

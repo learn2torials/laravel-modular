@@ -34,3 +34,11 @@ if (!function_exists('getModuleSlugRaw') )
         return str_replace('-', '_', str_slug(trim($str), '-'));
     }
 }
+
+if (!function_exists('module_enabled') )
+{
+    function module_enabled($module)
+    {
+        return ($modules = config('console.modules')) && !empty($modules[$module]);
+    }
+}
