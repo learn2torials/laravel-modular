@@ -156,6 +156,19 @@ return [
 ];
 ```
 
+### How to run module migration/seeder
+
+To run migration or seeder for your modules. Add seeder to config file and run following commands.
+
+```
+
+# run module migrations
+php artisan migrate
+
+# run module seeders
+php artisan db:seed --class="L2T\Database\Seeder"
+```
+
 # Reference
 
 Visit my website for cool articles: https://learn2torials.com
