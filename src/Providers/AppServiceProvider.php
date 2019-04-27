@@ -90,10 +90,11 @@ class AppServiceProvider extends ServiceProvider
         {
             if($isTurnedOn)
             {
-                $modulePath   = app_path(). '/Modules/' .ucfirst($module). DIRECTORY_SEPARATOR;
+                $modulePath = app_path(). '/Modules/' .getModuleSlug($module). DIRECTORY_SEPARATOR;
                 $moduleConfigPath = $modulePath. 'config.php';
 
                 if( \File::exists($moduleConfigPath) ) {
+                    $module = getModuleSlugRaw($module);
                     $this->mergeConfigFrom($moduleConfigPath, $module);
                     $this->loadViewsFrom($modulePath.'Views', $module);
                     $this->loadMigrationsFrom($modulePath. 'Migrations');

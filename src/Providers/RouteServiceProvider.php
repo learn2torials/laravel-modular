@@ -50,13 +50,13 @@ class RouteServiceProvider extends ServiceProvider
         $routePrefix = config('console.prefix') ? config('console.prefix'). '/' : '';
         foreach (config('console.modules', []) as $module => $isTurnedOn) {
             if($isTurnedOn) {
-                $modulePath   = app_path(). '/Modules/' .ucfirst($module). DIRECTORY_SEPARATOR;
+                $modulePath   = app_path(). '/Modules/' .getModuleSlug($module). DIRECTORY_SEPARATOR;
                 $moduleRoutes = $modulePath. 'routes.php';
                 if( \File::exists($moduleRoutes) ) {
-                    $route_prefix = $routePrefix. $module;
+                    $routePrefix = $routePrefix. $module;
                     $middleware = config($module. '.route_middleware', ['web']);
-                    $module_namespace = 'App\\Modules\\' .ucfirst($module). '\\Controllers';
-                    Route::prefix(langPrefix($route_prefix))->namespace($module_namespace)->middleware($middleware)->group($moduleRoutes);
+                    $moduleNamespace = 'App\\Modules\\' .getModuleSlug($module). '\\Controllers';
+                    Route::prefix(langPrefix($routePrefix))->namespace($moduleNamespace)->middleware($middleware)->group($moduleRoutes);
                 }
             }
         }
