@@ -53,10 +53,10 @@ class RouteServiceProvider extends ServiceProvider
                 $modulePath   = app_path(). '/Modules/' .getModuleSlug($module). DIRECTORY_SEPARATOR;
                 $moduleRoutes = $modulePath. 'routes.php';
                 if( \File::exists($moduleRoutes) ) {
-                    $routePrefix = $routePrefix. $module;
+                    $routeModulePrefix = $routePrefix. $module;
                     $middleware = config($module. '.route_middleware', ['web']);
                     $moduleNamespace = 'App\\Modules\\' .getModuleSlug($module). '\\Controllers';
-                    Route::prefix(langPrefix($routePrefix))->namespace($moduleNamespace)->middleware($middleware)->group($moduleRoutes);
+                    Route::prefix(langPrefix($routeModulePrefix))->namespace($moduleNamespace)->middleware($middleware)->group($moduleRoutes);
                 }
             }
         }
