@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 /**
  * Created by PhpStorm.
  * User: spatel
@@ -8,7 +10,7 @@
  */
 if ( isset($_SERVER["HTTP_CF_CONNECTING_IP"]) )
 {
-     $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+    $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
 }
 
 if (!function_exists('langPrefix') )
@@ -23,7 +25,7 @@ if (!function_exists('getModuleSlug') )
 {
     function getModuleSlug($str, $delimiter='')
     {
-        return str_replace(' ', $delimiter, ucwords(str_replace('-', ' ', str_slug(trim($str), '-'))));
+        return str_replace(' ', $delimiter, ucwords(str_replace('-', ' ', Str::slug(trim($str), '-'))));
     }
 }
 
@@ -31,7 +33,7 @@ if (!function_exists('getModuleSlugRaw') )
 {
     function getModuleSlugRaw($str)
     {
-        return str_replace('-', '_', str_slug(trim($str), '-'));
+        return str_replace('-', '_', Str::slug(trim($str), '-'));
     }
 }
 

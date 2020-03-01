@@ -17,8 +17,8 @@ You can turn this features into a module and bundle your logic so that you can e
 
 # Plugin Requirements
 
-- PHP >= 7.1.3
-- Laravel >= 5.5
+- PHP >= 7.2
+- Laravel >= 6.0
 
 # How to install this plugin
 
