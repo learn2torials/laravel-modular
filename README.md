@@ -20,6 +20,10 @@ You can turn this features into a module and bundle your logic so that you can e
 - PHP >= 7.2
 - Laravel >= 6.0
 
+# Newer Laravel Plugin
+For older version >= 8.0 of Laravel use this plugin [Modular Laravel](https://packagist.org/packages/learn2torials/modular-laravel)
+
+
 # How to install this plugin
 
 Run following command to your existing project.
@@ -179,4 +183,4 @@ php artisan db:seed --class="L2T\Database\Seeder"
 
 # Reference
 
-Visit my website for cool articles: https://learn2torials.com
+Example is shown on [https://learn2torials.com/a/laravel-module-management](https://learn2torials.com/a/laravel-module-management)
