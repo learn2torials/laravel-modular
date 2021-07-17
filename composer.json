@@ -4,7 +4,7 @@
   "description": "Laravel Modular App Generator Plugin",
   "keywords": ["laravel", "package", "modular", "modules", "structure", "Sandip", "Patel", "laravel-modular", "artisan"],
   "minimum-stability": "stable",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "type": "project",
   "license": "MIT",
   "authors": [
